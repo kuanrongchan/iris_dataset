@@ -2,16 +2,16 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import plotly.express as px
+from wordcloud import WordCloud
 
+
+st.set_page_config(layout="wide")
 st.title('Data analysis of iris dataset from PlotlyExpress')
 df = px.data.iris()
 
+
 st.markdown('***Iris dataset from PlotlyExpress***')
 st.write(df)
-
-st.markdown('***Dataset characteristics and attributes***')
-st.write(df.describe())
-
 
 columns = df.select_dtypes(include='number').columns
 column = st.selectbox('Select data column to explore stats', options=columns)
@@ -32,6 +32,6 @@ column = df[column]
 wc = WordCloud(max_font_size=25, background_color="white", repeat=True, height=500, width=800).generate(' '.join(column.unique()))
 st.image(wc.to_image())
 
-st.markdown('***Number of unique values to generate wordcloud***')
+st.markdown('***Counts in selected column for generating WordCloud***')
 unique_values = column.value_counts()
 st.write(unique_values)
