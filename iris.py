@@ -54,7 +54,7 @@ st.pyplot(g)
 st.subheader('Scatterplot analysis')
 selected_x_var = st.selectbox('What do you want the x variable to be?', df.columns)
 selected_y_var = st.selectbox('What about the y?', df.columns)
-fig = px.scatter(df, x = df[selected_x_var], y = df[selected_y_var])
+fig = px.scatter(df, x = df[selected_x_var], y = df[selected_y_var], color="species")
 st.plotly_chart(fig)
 
 #Correlation calculations (Pearson)
