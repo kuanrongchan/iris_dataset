@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import seaborn as sns
-from wordcloud import WordCloud
 from scipy.stats import pearsonr
 from sklearn import linear_model, metrics
 from sklearn.metrics import r2_score
@@ -40,9 +39,6 @@ st.markdown('***Unique counts for each species category***')
 unique_values = column.value_counts()
 st.write(unique_values)
 
-st.markdown('***Word cloud each species category***')
-wc = WordCloud(max_font_size=25, background_color="white", repeat=True, height=500, width=800).generate(' '.join(column.unique()))
-st.image(wc.to_image())
 
 # Data visualisation
 st.header('Visualising relationship between numeric variables')
